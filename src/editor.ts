@@ -13,7 +13,7 @@ import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 // @ts-ignore: no typings available for this package.
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 // @ts-ignore: no typings available for this package.
-import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 // @ts-ignore: no typings available for this package.
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 // @ts-ignore: no typings available for this package.
@@ -44,11 +44,19 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 
 import {JsonMap} from './map';
+import { JsonDataProcessor } from './JsonDataProcessor';
 
 /**
  * An implementation of a rich text editor.
  */
-export class RichTextEditor extends ClassicEditor {
+export class RichTextEditor extends ClassicEditorBase {
+
+  data :any;
+
+  constructor( element:any, config :any ) {
+    super( element, config );
+    this.data.processor = new JsonDataProcessor();
+  }
 
   /**
    * The set of supported plug-ins.
