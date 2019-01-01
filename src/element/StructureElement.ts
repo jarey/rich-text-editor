@@ -2,6 +2,7 @@
 import { JsonToPdfElementInterface } from './JsonToPdfElementInterface'
 import { StyleElement } from '../style/StyleElement';
 import { PropertyElement} from '../property/PropertyElement'
+import { ChunkBaseStylesAndProperties } from './ChunkBaseStylesAndProperties';
 /**
  * Chunk
 tag "chunk":
@@ -106,27 +107,26 @@ abstract class StructureElement implements JsonToPdfElementInterface{
      */
     processStylesAndProperties(){
         //Se aplican los defaults.
-        let baseStyleAndPropertiesObject = {styles:[], sub:false, super:false, family:'',color:'',size: 11};
-
+        let chunkBaseStylesAndProperties : ChunkBaseStylesAndProperties = new ChunkBaseStylesAndProperties();
         //Separamos estilos de propiedades:
-        let proStyles : StyleElement[] = this.styles.filter(style => style.elementType == 'STYLE');
-        let proProperties : StyleElement[] = this.styles.filter(style => style.elementType == 'PROPERTY');
+        let proStyles = this.styles.filter(style => style.elementType == 'STYLE');
+        let proProperties = this.styles.filter(style => style.elementType == 'PROPERTY');
 
         //Asignación de los estilos al chunk.
         if(proStyles && proStyles.length >0){
             for(const style of proStyles){
-                baseStyleAndPropertiesObject.styles.push(style.elementValue);
+                chunkBaseStylesAndProperties.styles.push(style.elementValue);
             }
         }
 
         //Asignación de las propiedades.
         if(proProperties && proProperties.length >0){
             for(const elemProperty of proProperties){
-                baseStyleAndPropertiesObject[elemProperty.elementValue] = elemProperty.elementContent;
+                chunkBaseStylesAndProperties[elemProperty.elementValue] = elemProperty.elementContent;
             }
         }
 
-        return baseStyleAndPropertiesObject;
+        return chunkBaseStylesAndProperties;
     }
 
 }

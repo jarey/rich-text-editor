@@ -97,7 +97,6 @@ class ChunkElement extends StructureElement{
      */
     processStylesAndProperties():any{
         //Se aplican los defaults.
-        let baseStyleAndPropertiesObject = {styles:[], sub:false, super:false, family:'',color:'',size: 11};
         let chunkBaseStylesAndProperties : ChunkBaseStylesAndProperties = new ChunkBaseStylesAndProperties();
         //Separamos estilos de propiedades:
         let proStyles = this.styles.filter(style => style.elementType == 'STYLE');
@@ -115,11 +114,11 @@ class ChunkElement extends StructureElement{
         if(proProperties && proProperties.length >0){
             for(const elemProperty of proProperties){
                 chunkBaseStylesAndProperties[elemProperty.elementValue] = elemProperty.elementContent;
-                baseStyleAndPropertiesObject[elemProperty.elementValue] = elemProperty.elementContent;
+                //baseStyleAndPropertiesObject[elemProperty.elementValue] = elemProperty.elementContent;
             }
         }
 
-        return baseStyleAndPropertiesObject;
+        return chunkBaseStylesAndProperties;
     }
 
 }

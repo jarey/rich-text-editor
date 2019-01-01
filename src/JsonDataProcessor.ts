@@ -29,8 +29,8 @@ class JsonDataProcessor implements JsonDataProcessorInterface {
             debugger;
             let factory = new JsonToPdfFactory();
             let jsonToPdfResult = factory.getJsonToPdfJson(viewElement, []);
-            console.log('Json procesado para el elemento: '+ JSON.stringify(jsonToPdfResult.getJson()));
-            return jsonToPdfResult.getJson();
+            console.log('Json procesado para el elemento: '+ JSON.stringify(jsonToPdfResult.getJson(viewElement)));
+            return jsonToPdfResult.getJson(viewElement);
         /**
          * Fin de bloque de prueba.
          */

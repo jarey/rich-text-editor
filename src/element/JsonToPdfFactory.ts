@@ -26,7 +26,8 @@ class JsonToPdfFactory{
             || element.elementType=='PROPERTY'){
             elements= elements.concat((<PropertyElement>element).getElement());
         }else if(element.elementType=='STRUCTURE'){
-            element.styles = element.styles.concat(elements);
+            let structureElement : StructureElement =(<StructureElement>element)
+            structureElement.styles = structureElement.styles.concat(elements);
             elements.splice(0,elements.length);
         }
         //Procesado de los hijos del elemento.
@@ -36,7 +37,9 @@ class JsonToPdfFactory{
                     || element.elementType=='PROPERTY'){
                     element = this.getJsonToPdfJson(child,elements);
                 }else{
-                    element.addChild(this.getJsonToPdfJson(child,elements));
+                    let structureElement : StructureElement =(<StructureElement>element)
+                    structureElement.addChild(<StructureElement>this.getJsonToPdfJson(child,elements));
+                    element = structureElement;
                 }
             }
         }else{
