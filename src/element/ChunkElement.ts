@@ -113,6 +113,7 @@ class ChunkElement extends StructureElement{
         //Asignación de las propiedades.
         if(proProperties && proProperties.length >0){
             for(const elemProperty of proProperties){
+                //leer https://www.bennadel.com/blog/3126-object-access-bracket-notation-vs-dot-notation-with-typescript-in-angular-2-rc-4.htm
                 chunkBaseStylesAndProperties[elemProperty.elementValue] = elemProperty.elementContent;
                 //baseStyleAndPropertiesObject[elemProperty.elementValue] = elemProperty.elementContent;
             }
