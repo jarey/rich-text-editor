@@ -4,17 +4,16 @@
  */
 class ChunkBaseStylesAndProperties{
 
-    styles: Array<string> =[];
-    sub: boolean =false;
-    super: boolean =false;
+    [key: string]: any
+    styles: Array<string> = [];
+    sub: boolean = false;
+    super: boolean = false;
     family: string = '';
-    color: string ='';
+    color: string = '';
     size: number = 11;
 
-    constructor(){
-    }
-
+    constructor(){}
 
 }
 
-export {ChunkBaseStylesAndProperties}
+export {ChunkBaseStylesAndProperties};

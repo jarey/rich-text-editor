@@ -43,8 +43,9 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 // @ts-ignore: no typings available for this package.
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 
-import {JsonMap} from './map';
 import { JsonDataProcessor } from './JsonDataProcessor';
+import {JsonMap} from './map';
+
 
 /**
  * An implementation of a rich text editor.
@@ -68,9 +69,9 @@ export class RichTextEditor extends ClassicEditorBase {
     Essentials, // Includes: Clipboard, Enter, ShiftEnter, Typing and Undo.
     Heading,
     Image, ImageCaption, ImageStyle, ImageToolbar,
-    Link,
+    //Link,
     List,
-    MediaEmbed, MediaEmbedToolbar,
+    //MediaEmbed, MediaEmbedToolbar,
     Paragraph,
     PasteFromOffice,
     Table, TableToolbar
@@ -96,8 +97,8 @@ export class RichTextEditor extends ClassicEditorBase {
       'bold', 'italic', 'underline', 'strikethrough', 'link', '|',
       'undo', 'redo', '|',
       'bulletedList', 'numberedList', '|',
-      'alignment:left', 'alignment:center', 'alignment:right', '|',
-      'insertTable', 'mediaEmbed'
+      'alignment:left', 'alignment:center', 'alignment:right'
+      //,'|','insertTable', 'mediaEmbed'
     ]
   };
 }

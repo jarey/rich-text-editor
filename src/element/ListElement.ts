@@ -1,39 +1,37 @@
-import { StructureElement } from "./StructureElement";
+import { StructureElement } from './StructureElement';
 
 /**
  * Constante para el párrafo.
  */
-let LIST_LITERAL='list'; 
-let ESTRUCTURE_TYPE= 'STRUCTURE';
+const LIST_LITERAL = 'list';
 /**
  * Elemento de texto.
  */
 class ListElement extends StructureElement{
-    
-    roman : boolean = false;
 
-    constructor(viewElement:any, ordered: boolean){
+    roman: boolean = false;
+
+    constructor(viewElement: any, ordered: boolean){
         super(viewElement);
-        this.elementValue= LIST_LITERAL;
+        this.elementValue = LIST_LITERAL;
         this.roman = ordered;
     }
 
     /**
-     * 
      * A partir del contenido del objeto devuelve el JSON correspondiente adaptado a json-to-pdf
      */
     getJson(){
-        //lógica de composición del objeto.
-        let jsonReturn = [];
+        // lógica de composición del objeto.
+        const jsonReturn = [];
         jsonReturn.push(this.elementValue);
         
-        //Computar los estilos de la forma que aplique al tipo de elemento.
-        if(this.styles){
+        // Computar los estilos de la forma que aplique al tipo de elemento.
+        if (this.styles){
             jsonReturn.push(this.processStylesAndProperties());
         }
 
-        //Añadir los hijos.
-        if(this.children){
+        // Añadir los hijos.
+        if (this.children){
             jsonReturn.push(this.processChildren());
         }
         return jsonReturn;
@@ -43,9 +41,9 @@ class ListElement extends StructureElement{
      * Realiza el procesado de los hijos, para obteer el correspondiente json resultado.
      */
     processChildren(){
-        let childrenJson = [];
-        for(const child of this.children){
-            childrenJson = child.getJson();
+        const childrenJson = [];
+        for (const child of this.children){
+            childrenJson.push(child.getJson());
         }
         return childrenJson;
     }
@@ -54,8 +52,8 @@ class ListElement extends StructureElement{
      * Realiza el procesado de los estilos y las propiedades que puedan aplicarse al elemento y vengan informadas,
      * adaptadas a la forma de especificarlas que tenga el elemento en concreto.
      */
-    processStylesAndProperties():any{
-        var stylesAndProperties = {roman: this.roman};
+    processStylesAndProperties(): any{
+        const stylesAndProperties = {roman: this.roman};
         return stylesAndProperties;
     }
 

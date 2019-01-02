@@ -2,9 +2,9 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8">
-    <title>SAB Rich Text Editor</title>
-    <script src="https://cdn.jsdelivr.net/npm/@sab-international/rich-text-editor/build/editor.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@sab-international/rich-text-editor/build/i18n/en.js"></script>
+    <title>Text Editor</title>
+    <script src="../build/editor.js"></script>
+    <script src="../build/i18n/es.js"></script>
 
     <style>
       html { height: 100%; }
@@ -15,11 +15,23 @@
 
   <body>
     <textarea id="editor" title="Rich text editor"></textarea>
+    <button id="getDataBtn">Get data</button>
 
     <script>
       RichTextEditor
-        .create(document.querySelector('#editor'), {language: 'en'})
+        .create(document.querySelector('#editor'), {language: 'es'})
+        .then( editor => {window.editor = editor;} )
         .catch(error => console.error(error));
+
+      /**
+       * Bindings para el ejemplo con el botón para obtener la información del editor.
+       */
+      function getEditorData() {
+        let output = window.editor.getData();
+        console.log(output);
+        window.alert(output);
+      }
+      document.getElementById( 'getDataBtn' ).onclick = getEditorData;
     </script>
   </body>
 </html>

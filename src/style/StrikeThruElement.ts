@@ -2,16 +2,16 @@ import {StyleElement} from './StyleElement';
 /**
  * Constante para la negrita.
  */
-const BOLD_LITERAL = 'bold';
+const STRIKETHRU_LITERAL = 'strikethru';
 /**
  * Elemento de texto.
  */
-class BoldStyleElement extends StyleElement{
+class StrikeThruElement extends StyleElement{
 
     constructor(viewElement: any){
         super(viewElement);
-        this.elementValue = BOLD_LITERAL;
+        this.elementValue = STRIKETHRU_LITERAL;
     }
 }
 
-export {BoldStyleElement};
+export {StrikeThruElement};
