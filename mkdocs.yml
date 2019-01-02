@@ -1,27 +1,19 @@
-site_name: SAB Rich Text Editor
-site_description: A customized build of CKEditor, a rich text editor.
-site_author: SAB International - contact@sabcomputer.com
-site_url: https://dev.sabcomputer.com/rich-text-editor
+site_name: Ckeditor Json
+site_description: A customized build of CKEditor, a rich text editor, for generating output valid for json-to-pdf backend java library.
+site_author: Indra - jarey@minsait.com
+site_url: https://gitlab.com/jarey/ckeditor-json
 
 docs_dir: doc
 site_dir: web
 
-repo_name: GitHub
-repo_url: https://github.com/sab-international/rich-text-editor
+repo_name: Gitlab
+repo_url: https://gitlab.com/jarey/ckeditor-json
 edit_uri: ''
 
-copyright: Copyright &copy; 2018 SAB International
+copyright: Copyright &copy; Indra
 google_analytics:
 - !!python/object/apply:os.getenv [GOOGLE_ANALYTICS_ID]
 - auto
-
-extra:
-  social:
-  - {type: globe, link: 'http://www.sabcomputer.com'}
-  - {type: github, link: 'https://github.com/sab-international'}
-  - {type: facebook, link: 'https://www.facebook.com/sabinternational34'}
-  - {type: twitter, link: 'https://twitter.com/SABDistribution'}
-  - {type: linkedin, link: 'https://linkedin.com/company/sab-international-sarl'}
 
 markdown_extensions:
 - admonition
